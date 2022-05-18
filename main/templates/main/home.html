@@ -1,0 +1,18 @@
+<a href="{% url 'create_form' %}">create</a><br>
+
+{% for forms in form %}
+    <div>
+    {{ forms.name }}
+    {{ forms.dept }}
+    </div>
+
+    <div>
+        <form method="POST" action="">
+           {% csrf_token %}
+            <a href="{% url 'updateForm' forms.id %}">Edit</a>
+{#           <a href="{% url 'deleteForm' forms.id %}">Delete</a>#}
+            <a href="{% url 'deleteForm' forms.pk %}">Delete</a>
+
+        </form>
+    </div>
+{% endfor %}
